@@ -1,6 +1,7 @@
 package com.uap.escuela_tecnica.gestioncursos.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.uap.escuela_tecnica.aplicacion.anotaciones.GenerarTypescript;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@GenerarTypescript
 public class CursoEjecucionDto {
     private Long idCursoEjecucion;
     private LocalDate fechaInicio;

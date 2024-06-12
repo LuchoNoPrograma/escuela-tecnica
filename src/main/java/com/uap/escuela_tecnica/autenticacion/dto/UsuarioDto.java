@@ -1,5 +1,6 @@
 package com.uap.escuela_tecnica.autenticacion.dto;
 
+import com.uap.escuela_tecnica.aplicacion.anotaciones.GenerarTypescript;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Builder
+@GenerarTypescript
 public class UsuarioDto implements Serializable {
     private Long idUsuario;
     private String nombreUsuario;

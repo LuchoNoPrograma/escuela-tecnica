@@ -1,6 +1,7 @@
 package com.uap.escuela_tecnica.autenticacion.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.uap.escuela_tecnica.aplicacion.anotaciones.GenerarTypescript;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -19,6 +20,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@GenerarTypescript
 public class UsuarioIniciarSesionDto implements Serializable {
     @NotNull(message = "El nombre de usuario es obligatorio")
     @NotEmpty(message = "El nombre de usuario es obligatorio")

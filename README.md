@@ -22,3 +22,25 @@ Este repositorio contiene el código fuente del prototipo de un sistema web desa
 3. Configura la base de datos PostgreSQL y asegúrate de que esté en funcionamiento.
 4. Importa el proyecto y realiza las configuraciones necesarias para conectarte a la base de datos.
 5. Ejecuta la aplicación y accede a través del navegador web utilizando la URL proporcionada por Spring Boot.
+
+
+## Generación de Interfaces de Typescript-Frontend desde Clases de Java-Backend
+Este proyecto utiliza Maven y el complemento TypeScript Generator para generar archivos TypeScript a partir de clases Java. Resúmen:<br> 
+```Clase.java -> interface.ts```
+
+Sigue los pasos a continuación para generar las interfaces TypeScript:
+
+1) Abre la terminal desde la raiz del proyecto
+2) Ejecuta el siguiente comando:
+    ```bash
+    mvn process-classes -P generar-archivos-typescript
+    ```
+### Explicación
+* **mvn:** Es el comando principal que debes usar para interactuar con el proyecto desde la terminal.
+
+
+* **process-classes:** Es una instruccion de Maven que indica cómo se deben procesar el proyecto según lo configurado en el archivo `pom.xml`
+  **Aqui se generan las Interfaces Typescript!**
+
+
+* **-P generar-archivos-typescript:** Es un perfil configurado en **pom.xml** que permite la generacion de archivos typescript a las clases que esten anotadas con `@GenerarTypescript`, el directorio de salida de los archivos se encuentra en `src/main/resources/frontend/types`

@@ -1,6 +1,7 @@
 package com.uap.escuela_tecnica.gestioncursos.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.uap.escuela_tecnica.aplicacion.anotaciones.GenerarTypescript;
 import com.uap.escuela_tecnica.gestioncursos.modelo.entidad.Curso;
 import com.uap.escuela_tecnica.gestioncursos.modelo.enums.Modalidad;
 import jakarta.validation.constraints.Max;
@@ -19,6 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@GenerarTypescript
 public class CursoSinEjecucionDto {
     private Long idCurso;
 
