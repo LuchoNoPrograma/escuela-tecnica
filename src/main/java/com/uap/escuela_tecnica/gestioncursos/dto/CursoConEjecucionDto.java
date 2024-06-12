@@ -40,6 +40,8 @@ public class CursoConEjecucionDto {
     @NotNull(message = "La categoria es obligatoria")
     private CategoriaDto categoria;
 
+    private String estado;
+
     @NotNull(message = "La ejecucion es obligatoria")
     private CursoEjecucionDto cursoEjecucion;
 }

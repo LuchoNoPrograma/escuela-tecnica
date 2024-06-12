@@ -40,4 +40,7 @@ public class Curso extends AuditoriaRevision {
 
     @OneToMany(mappedBy = "curso")
     private List<CursoEjecucion> listaCursoEjecucion;
+
+    @Column(name = "estado", columnDefinition = "varchar(55) default 'ACTIVO'")
+    private String estado;
 }

@@ -47,6 +47,10 @@ public class CursoMapper {
         Converter<List<CursoEjecucion>, CursoEjecucionDto> converterListaCursoEjecucionACursoConEjecucionDto = context -> {
             List<CursoEjecucion> source = context.getSource();
 
+            if (source == null || source.isEmpty()) {
+                return null;
+            }
+
             CursoEjecucionDto destination = new CursoEjecucionDto();
             destination.setIdCursoEjecucion(source.get(0).getIdCursoEjecucion());
             destination.setFechaInicio(source.get(0).getFechaInicio());
@@ -54,6 +58,7 @@ public class CursoMapper {
             destination.setFechaLimite(source.get(0).getFechaLimite());
             destination.setCertificadoImg(source.get(0).getCertificadoImg());
             destination.setEnEjecucion(source.get(0).getEnEjecucion());
+            destination.setEstado(source.get(0).getEstado());
 
             return destination;
         };

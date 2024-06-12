@@ -46,4 +46,10 @@ public class CursoServicio {
             return curso;
         }).toList();
     }
+
+    //Lista los cursos de manera general, aun cuando no tengan ejecuciones disponibles
+    @Transactional(readOnly = true)
+    public List<Curso> listarCursosEnGeneral(){
+        return cursoDao.listarCursosEnGeneralOrdenFechaCreacionDesc();
+    }
 }

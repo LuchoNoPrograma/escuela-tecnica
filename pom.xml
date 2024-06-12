@@ -130,7 +130,7 @@
                             <outputFile>src/main/resources/frontend/types/backend.model.ts</outputFile>
                             <outputFileType>implementationFile</outputFileType>
                             <outputKind>module</outputKind>
-                            <optionalProperties>all</optionalProperties>
+                            <!--<optionalProperties>all</optionalProperties>-->
                             <scanSpringApplication>true</scanSpringApplication>
                             <sortTypeDeclarations>true</sortTypeDeclarations>
                             <stringQuotes>singleQuotes</stringQuotes>

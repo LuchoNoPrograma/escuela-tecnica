@@ -38,4 +38,7 @@ public class CursoEjecucion extends AuditoriaRevision {
 
     @Column(name = "en_ejecucion")
     private Boolean enEjecucion;
+
+    @Column(name = "estado", columnDefinition = "varchar(55) default 'ACTIVO'")
+    private String estado;
 }

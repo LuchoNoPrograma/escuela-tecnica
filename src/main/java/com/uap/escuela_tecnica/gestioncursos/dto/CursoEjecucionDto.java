@@ -25,4 +25,5 @@ public class CursoEjecucionDto {
     private LocalDate fechaLimite;
     private String certificadoImg;
     private Boolean enEjecucion;
+    private String estado;
 }

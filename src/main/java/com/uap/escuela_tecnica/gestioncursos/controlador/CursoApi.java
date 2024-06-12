@@ -44,7 +44,14 @@ public class CursoApi {
         Type tipadoListaCursoConEjecucionDto = new TypeToken<List<CursoConEjecucionDto>>() {
         }.getType();
 
-
         return ResponseEntity.status(200).body(modelMapper.map(cursoServicio.listarCursosConEjecucionActual(), tipadoListaCursoConEjecucionDto));
+    }
+
+    @GetMapping("/curso")
+    public ResponseEntity<List<CursoConEjecucionDto>> listarCursosEnGeneral() {
+        Type tipadoListaCursoConEjecucionDto = new TypeToken<List<CursoConEjecucionDto>>() {
+        }.getType();
+
+        return ResponseEntity.status(200).body(modelMapper.map(cursoServicio.listarCursosEnGeneral(), tipadoListaCursoConEjecucionDto));
     }
 }
