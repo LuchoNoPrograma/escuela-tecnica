@@ -1,0 +1,53 @@
+INSERT INTO categoria (nombre)
+VALUES ('INFORMÁTICA'),
+       ('IDIOMAS'),
+       ('ADMINISTRACIÓN'),
+       ('MARKETING'),
+       ('GASTRONOMÍA'),
+       ('ARTE'),
+       ('OTROS');
+
+INSERT INTO curso (_fecha_registrado,
+                   carga_horaria,
+                   afiche_img_archivo,
+                   ficha_tecnica_pdf_archivo,
+                   modalidad,
+                   nombre,
+                   id_categoria,
+                   afiche_img,
+                   ficha_tecnica_pdf)
+VALUES (current_timestamp, 200, 'url', 'url', 'PRESENCIAL', 'CURSO DE REPOSTERÍA', 5, 'url', 'url'),
+       (current_timestamp, 100, 'url', 'url', 'PRESENCIAL', 'CURSO OFIMÁTICA CON WORD', 1, 'url', 'url'),
+       (current_timestamp, 100, 'url', 'url', 'PRESENCIAL', 'CURSO OFIMÁTICA CON EXCEL', 1, 'url', 'url'),
+       (current_timestamp, 150, 'url', 'url', 'VIRTUAL', 'CURSO DE INGLES PARA NIÑOS', 2, 'url', 'url'),
+       (current_timestamp, 180, 'url', 'url', 'VIRTUAL', 'CURSO DE CAVINEÑO', 2, 'url', 'url'),
+       (current_timestamp, 120, 'url', 'url', 'VIRTUAL', 'CURSO DE INGLES GENERAL', 2, 'url', 'url'),
+       (current_timestamp, 160, 'url', 'url', 'PRESENCIAL', 'CURSO DE PHOTOSHOP', 4, 'url', 'url'),
+       (current_timestamp, 180, 'url', 'url', 'VIRTUAL', 'CURSO DE DESARROLLO WEB', 2, 'url', 'url'),
+       (current_timestamp, 160, 'url', 'url', 'PRESENCIAL', 'CURSO DE GASTRONOMÍA', 1, 'url', 'url'),
+       (current_timestamp, 150, 'url', 'url', 'PRESENCIAL', 'CURSO DE GESTIÓN MERCANTIL', 3, 'url', 'url'),
+       (current_timestamp, 200, 'url', 'url', 'VIRTUAL', 'CURSO DE PELUQUERIA', 7, 'url', 'url'),
+       (current_timestamp, 120, 'url', 'url', 'VIRTUAL', 'CURSO DE ARTESANIA', 6, 'url', 'url');
+
+
+INSERT INTO curso_ejecucion (_fecha_registrado,
+                             fecha_inicio,
+                             fecha_fin,
+                             fecha_limite_preinscripcion,
+                             id_curso,
+                             certificado_img,
+                             fecha_limite,
+                             en_ejecucion)
+VALUES (current_timestamp, '2024-03-01', '2024-06-12', '2024-03-12', 1, 'url', '2024-03-12', FALSE),
+       (current_timestamp, '2023-04-01', '2023-07-15', '2023-04-10', 2, 'url', '2024-04-10', TRUE),
+       (current_timestamp, '2024-04-01', '2024-07-15', '2024-04-10', 2, 'url', '2024-04-10', TRUE),
+       (current_timestamp, '2024-05-01', '2024-08-15', '2024-05-10', 3, 'url', '2024-05-10', TRUE),
+       (current_timestamp, '2024-06-01', '2024-09-15', '2024-06-10', 4, 'url', '2024-06-10', FALSE),
+       (current_timestamp, '2024-07-01', '2024-10-15', '2024-07-10', 5, 'url', '2024-07-10', TRUE),
+       (current_timestamp, '2024-08-01', '2024-11-15', '2024-08-10', 6, 'url', '2024-08-10', TRUE),
+       (current_timestamp, '2024-09-01', '2024-12-15', '2024-09-10', 7, 'url', '2024-09-10', FALSE),
+       (current_timestamp, '2024-10-01', '2025-01-15', '2024-10-10', 8, 'url', '2024-10-10', TRUE),
+       (current_timestamp, '2024-11-01', '2025-02-15', '2024-11-10', 9, 'url', '2024-11-10', TRUE),
+       (current_timestamp, '2024-12-01', '2025-03-15', '2024-12-10', 10, 'url', '2024-12-10', FALSE),
+       (current_timestamp, '2024-12-01', '2025-03-15', '2024-12-10', 11, 'url', '2024-12-10', FALSE),
+       (current_timestamp, '2024-12-01', '2025-03-15', '2024-12-10', 12, 'url', '2024-12-10', FALSE);

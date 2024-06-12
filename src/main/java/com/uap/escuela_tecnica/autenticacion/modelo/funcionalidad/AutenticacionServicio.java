@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class AutenticacionUseCase {
+public class AutenticacionServicio {
     private final IUsuarioDao usuarioDao;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 

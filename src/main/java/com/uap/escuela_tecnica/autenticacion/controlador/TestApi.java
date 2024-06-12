@@ -6,7 +6,7 @@ import com.uap.escuela_tecnica.autenticacion.dto.UsuarioDto;
 import com.uap.escuela_tecnica.autenticacion.dto.UsuarioIniciarSesionDto;
 import com.uap.escuela_tecnica.autenticacion.modelo.dao.IUsuarioDao;
 import com.uap.escuela_tecnica.autenticacion.modelo.entidad.Usuario;
-import com.uap.escuela_tecnica.autenticacion.modelo.funcionalidad.AutenticacionUseCase;
+import com.uap.escuela_tecnica.autenticacion.modelo.funcionalidad.AutenticacionServicio;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/test")
 public class TestApi {
-    private final AutenticacionUseCase autenticacionUseCase;
+    private final AutenticacionServicio autenticacionServicio;
     private final AuthenticationManager authenticationManager;
     private final IUsuarioDao usuarioDao;
     private final JwtService jwtService;
@@ -43,7 +43,7 @@ public class TestApi {
     public ResponseEntity<UsuarioDto> registrarNuevoUsuario(@RequestBody UsuarioDto dto) {
         Usuario entidad = modelMapper.map(dto, Usuario.class);
 
-        UsuarioDto usuarioDtoRespuesta = modelMapper.map(autenticacionUseCase.registrarNuevoUsuario(entidad), UsuarioDto.class);
+        UsuarioDto usuarioDtoRespuesta = modelMapper.map(autenticacionServicio.registrarNuevoUsuario(entidad), UsuarioDto.class);
         return ResponseEntity.status(200)
                 .body(usuarioDtoRespuesta);
     }
@@ -62,12 +62,12 @@ public class TestApi {
 
     @PostMapping("/generar-token")
     public ResponseEntity<String> autenticarseYGenerarTokenJWT(@RequestBody UsuarioIniciarSesionDto peticionIniciarSesion) throws JsonProcessingException {
-        authenticationManager.authenticate(
+        Authentication authenticaion = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(peticionIniciarSesion.getNombreUsuario(), peticionIniciarSesion.getContrasena())
         );
 
 
-
+        UserDetails userDetails = (UserDetails) authenticaion.getPrincipal();
         return ResponseEntity.status(200).body(jwtService.crearToken(userDetails));
     }
 }

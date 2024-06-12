@@ -1,5 +1,6 @@
 package com.uap.escuela_tecnica.aplicacion.config;
 
+import com.uap.escuela_tecnica.gestioncursos.mapper.CursoMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class ModelMapperConfig {
     @Bean
     ModelMapper modelMapper() {
-        return new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
+
+        modelMapper.addMappings(CursoMapper.cursoConEjecucionDtoACurso());
+        modelMapper.addMappings(CursoMapper.cursoACursoConEjecucionDto());
+
+        return modelMapper;
     }
 }
