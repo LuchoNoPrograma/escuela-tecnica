@@ -1,0 +1,24 @@
+services:
+  db:
+    image: 'postgres:14-alpine'
+    container_name: postgresql-container
+    environment:
+      POSTGRES_DB: escuela-tecnica-test
+      POSTGRES_USER: compose-postgres
+      POSTGRES_PASSWORD: compose-postgres
+#    volumes: #volumenes permite guardar datos del contenedor
+#      - 'db-data:/var/lib/postgresql/data'
+    restart: always
+
+  backend:
+    image: escuela-tecnica:latest
+    container_name: escuela-tecnica-container
+    ports:
+      - '9090:9090'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/escuela-tecnica-test #el host db hace referencia al nombre del servicio db
+      SPRING_DATASOURCE_USERNAME: compose-postgres
+      SPRING_DATASOURCE_PASSWORD: compose-postgres
+    depends_on:
+      - db
+    restart: always
