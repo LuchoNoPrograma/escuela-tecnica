@@ -14,7 +14,7 @@ services:
     image: 'luchonoprograma/escuela_tecnica-backend:latest'
     container_name: escuela-tecnica-container
     ports:
-      - '9090:9090'
+      - '9090:9090' #1er puerto antes de : es host de la maquina de docker; # 2do puerto despues de : es puerto dentro del contenedor docker
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/escuela-tecnica-test #el host db hace referencia al nombre del servicio db
       SPRING_DATASOURCE_USERNAME: compose-postgres

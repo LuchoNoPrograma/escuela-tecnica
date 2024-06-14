@@ -8,5 +8,8 @@ FROM openjdk:17-jdk-alpine
 
 # Argumentos
 COPY --from=build /target/*.jar escuela-tecnica.jar
+
+#Puerto del contenedor
+EXPOSE 9090
 # Comandos por ejecutarse en el contenedor
 ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=docker","escuela-tecnica.jar"]
