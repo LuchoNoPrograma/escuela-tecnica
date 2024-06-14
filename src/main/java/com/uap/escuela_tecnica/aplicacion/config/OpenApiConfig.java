@@ -30,7 +30,7 @@ public class OpenApiConfig {
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components().addSecuritySchemes("Bearer Authentication", createAPIKeyScheme()))
                 .info(new Info()
-                        .version("v1")
+                        .version("v1.0")
                         .title("API REST de la Escuela Técnica")
                         .description("""
                                 Documentación de la API de la Escuela Técnica.

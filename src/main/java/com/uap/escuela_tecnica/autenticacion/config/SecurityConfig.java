@@ -76,7 +76,7 @@ public class SecurityConfig {
         corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:*", "https://*", "http://*"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-        /*corsConfiguration.setExposedHeaders(List.of("content-disposition", "Access-Control-Allowed-Origin"));*/
+        corsConfiguration.setExposedHeaders(List.of("content-disposition", "Access-Control-Allowed-Origin"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
