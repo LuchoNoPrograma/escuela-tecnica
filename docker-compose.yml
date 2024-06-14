@@ -8,10 +8,10 @@ services:
       POSTGRES_PASSWORD: compose-postgres
 #    volumes: #volumenes permite guardar datos del contenedor
 #      - 'db-data:/var/lib/postgresql/data'
-    restart: always
 
   backend:
-    build: .
+#    build: .
+    image: 'luchonoprograma/escuela_tecnica-backend:latest'
     container_name: escuela-tecnica-container
     ports:
       - '9090:9090'
@@ -21,4 +21,3 @@ services:
       SPRING_DATASOURCE_PASSWORD: compose-postgres
     depends_on:
       - db
-    restart: always
