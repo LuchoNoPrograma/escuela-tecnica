@@ -55,7 +55,6 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/jwt-auth/**").permitAll()
@@ -66,6 +65,7 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors((cors) -> cors.configurationSource(corsConfigurationSource()))
                 .build();
     }
 
@@ -76,6 +76,7 @@ public class SecurityConfig {
         corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:*", "https://*", "http://*"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        /*corsConfiguration.setExposedHeaders(List.of("content-disposition", "Access-Control-Allowed-Origin"));*/
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
